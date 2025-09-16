@@ -1,8 +1,10 @@
-import cors from "cors"
-import dotenv from "dotenv"
-import express from "express"
-import mongoose from "mongoose"
-import morgan from "morgan"
+import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import morgan from "morgan";
+import routes from "./routes/index.js"
+
 
 dotenv.config()
 const app = express()
@@ -26,6 +28,8 @@ const PORT = process.env.PORT || 5000 ;
 app.get("/" , async(req, res)=>{
     res.status(200).json({msg:"hello"})
 });
+
+app.use("/api-v1", routes);
 
 
 //error middleware 
